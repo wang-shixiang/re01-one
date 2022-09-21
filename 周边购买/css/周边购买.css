@@ -1,0 +1,678 @@
+/*common css  共用样式*/
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+a {
+    color: #666;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #666;
+}
+
+/*使用自定义字体图标*/
+@font-face {
+    font-family: wjs_font_icon;
+    src: url(../fonts/MiFie-Web-Font.woff) format('woff'),
+    url(../fonts/MiFie-Web-Font.ttf) format('truetype'),
+    url(../fonts/MiFie-Web-Font.svg) format('svg'),
+    url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype');
+}
+
+/*定义使用字体的类*/
+.wjs_icon {
+    font-family: wjs_font_icon;
+}
+
+/*具体到图标的类*/
+.wjs_icon_phone::before {
+    content: "\e908";
+}
+
+.wjs_icon_tel::before {
+    content: "\e909";
+}
+
+.wjs_icon_logo::before {
+    content: "\e920";
+}
+
+.wjs_icon_name::before {
+    content: "\e93e";
+}
+
+.wjs_icon_info::before {
+    content: "\e903";
+}
+
+.wjs_icon_clock::before {
+    content: "\e906";
+}
+
+.wjs_icon_video::before {
+    content: "\e905";
+}
+
+.wjs_icon_new_01::before {
+    content: "\e90e";
+}
+
+.wjs_icon_new_02::before {
+    content: "\e90f";
+}
+
+.wjs_icon_new_03::before {
+    content: "\e910";
+}
+
+.wjs_icon_new_04::before {
+    content: "\e911";
+}
+
+.wjs_icon_partner01::before {
+    content: "\e946";
+}
+
+.wjs_icon_partner02::before {
+    content: "\e92f";
+}
+
+.wjs_icon_partner03::before {
+    content: "\e92e";
+}
+
+.wjs_icon_partner04::before {
+    content: "\e92a";
+}
+
+.wjs_icon_partner05::before {
+    content: "\e929";
+}
+
+.wjs_icon_partner06::before {
+    content: "\e931";
+}
+
+.wjs_icon_partner07::before {
+    content: "\e92c";
+}
+
+.wjs_icon_partner08::before {
+    content: "\e92b";
+}
+
+.wjs_icon_partner09::before {
+    content: "\e92d";
+}
+
+/*model css  模块样式*/
+.wjs_topBar {
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+
+}
+
+.wjs_topBar > .container {
+}
+
+/*边框第一种实现方式*/
+/*.wjs_topBar > .container > div{
+    height: 40px;
+    border-left: 1px solid #ccc;
+}
+.wjs_topBar > .container > div:nth-of-type(1){
+    border-left: none;
+}*/
+
+/*边框第二种实现方式+ (临近兄弟选择器：先找到选择器的元素，然后找选择器的紧邻的下一个元素)  */
+/*.wjs_topBar > .container > div {
+    height: 40px;
+}
+.wjs_topBar > .container > div + div{
+    border-left: 1px solid #ccc;
+}*/
+
+/*边框第三种实现方式~ (普通兄弟选择器：先找到选择器的元素，然后找选择器的后面所有的同级元素)   */
+.wjs_topBar > .container > div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.wjs_topBar > .container > div ~ div {
+    border-left: 1px solid #ccc;
+}
+
+/*当预设的bootstrap样式达不到需求的时候，可以自定义样式*/
+.wjs_topBar .btn_register {
+    background: #e92322;
+    color: #fff;
+    border: none;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+.wjs_topBar .btn_login {
+    color: #666;
+    font-size: 12px;
+}
+
+.wjs_topBar .btn_login:hover {
+    text-decoration: none;
+}
+
+.wjs_app {
+    display: block;
+    position: relative;
+}
+
+.wjs_app > img {
+    display: none;
+}
+
+.wjs_app:hover img {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -60px;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 999;
+}
+
+/*bootstrap样式navbar-default替换为自定义样式wjs_nav*/
+.wjs_nav {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    margin-bottom: 0px;
+    border-radius: 0px;
+
+    z-index: 998;
+    width: 100%;
+    top:0;
+    left:0;
+}
+
+.wjs_nav .wjs_icon_logo {
+    font-size: 50px;
+    color: #e92322;
+    vertical-align: middle;
+}
+
+.wjs_nav .wjs_icon_name {
+    font-size: 30px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.wjs_nav .navbar-brand {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+}
+
+.wjs_nav .navbar-brand:hover,
+.wjs_nav .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.wjs_nav .navbar-text {
+    color: #777;
+}
+
+.wjs_nav .navbar-nav > li > a {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+}
+
+.wjs_nav .navbar-nav > li > a:hover,
+.wjs_nav .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 3px solid #e92322;
+}
+
+.wjs_nav .navbar-nav > .active > a,
+.wjs_nav .navbar-nav > .active > a:hover,
+.wjs_nav .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border-bottom: 3px solid #e92322;
+}
+
+.wjs_nav .navbar-nav > .disabled > a,
+.wjs_nav .navbar-nav > .disabled > a:hover,
+.wjs_nav .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.wjs_nav .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 23px;
+}
+
+.wjs_nav .navbar-toggle:hover,
+.wjs_nav .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.wjs_nav .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.wjs_nav .navbar-collapse,
+.wjs_nav .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.wjs_nav .navbar-nav > .open > a,
+.wjs_nav .navbar-nav > .open > a:hover,
+.wjs_nav .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+.xjkj_weixin{
+    width: 150px;
+    height: 200px;
+}
+
+
+
+
+body{
+    background: #f5f5f5;
+}
+/*版心容器*/
+.jd_container {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+
+}
+
+.jd_search {
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 200px;
+    /*同为定位，jd_banner的relative定位后来居上，会覆盖掉
+     * 通缉的jd_search,所以要为其设置z——index为高级别*/
+    z-index: 999;
+}
+
+.jd_search .jd_search_box {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    height: 40px;
+    background: #d8505c;
+    position: relative;
+
+}
+
+.jd_search .jd_search_box a {
+    position: absolute;
+    top: 0px;
+}
+
+.jd_search .jd_search_box .icon_logo {
+    width: 60px;
+    height: 36px;
+    top: 4px;
+    background-position: 0 -103px;
+    left: 5px;
+}
+
+.jd_search .jd_search_box .login {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    right: 0px;
+}
+
+/*双飞翼自适应*/
+.jd_search .jd_search_box form {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 50px;
+}
+
+/*百分比是基于父容器的内容宽度和高度*/
+.jd_search .jd_search_box form input {
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 5px;
+    padding-left: 35px;
+}
+
+.jd_search .jd_search_box form .icon_search {
+    height: 20px;
+    width: 20px;
+    background-position: -60px -109px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 75px;
+}
+.jd_banner{
+    width:100%;
+    position: relative;
+    overflow: hidden;
+
+}
+.jd_banner ul:first-child{
+    width: 1000%;
+    /*将轮播图11设为默认显示位置*/
+    transform: translateX(-10%);
+    -webkit-transform:translateX(-10%);
+}
+.jd_banner ul:first-child li{
+    width: 10%;
+    float: left;
+}
+.jd_banner ul:first-child a{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:first-child a img{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:last-child{
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    margin-left:-59px;
+    width: 118px;
+}
+.jd_banner ul:last-child li{
+    width: 6px;
+    height: 6px;
+    border-radius:50%;
+    border:1px solid #ffffff;
+    float: left;
+    margin-left:10px;
+}
+.jd_banner ul:last-child li:first-child{
+    margin-left:0px;
+}
+.jd_banner ul:last-child .now{
+    background: #ffffff;
+}
+.jd_nav{
+    width: 100%;
+    background: #ffffff;
+
+}
+.jd_nav ul{
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
+}
+.jd_nav ul li{
+    width: 25%;
+    float: left;
+}
+.jd_nav ul li a{
+    width: 100%;
+    display: block;
+}
+.jd_nav ul li a img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0px;
+
+
+
+}
+
+
+.jd_nav ul li a p{
+    position: relative;
+    color: #666666;
+    font-size: 12px;
+    text-align:center;
+    padding: 5px 0;
+
+}
+/*商品盒子*/
+}
+.jd_product{
+    padding:  0 5px;
+    width: 100%;
+}
+
+.jd_proBox{
+    margin-top: 10px;
+    box-shadow:  0 0 1px #d8d8d8;
+    background: #ffffff;
+}
+.jd_proBox .pro_tit{
+    height: 34px;
+    line-height: 34px;
+    border-bottom: 1px solid #ddd;
+}
+.jd_proBox .pro_tit.nb{
+    border-bottom: none;
+}
+.jd_proBox .pro_tit h3{
+    position: relative;
+    text-indent: 20px;
+    font-weight: normal;
+}
+.jd_proBox .pro_tit h3::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    width: 3px;
+    height: 12px;
+    background: #d8505c;
+}
+/*秒杀*/
+.sk_icon{
+    width: 16px;
+    height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    background: url("../img/seckill-icon.png") no-repeat;
+    /*一倍左右*/
+    background-size: 16px 20px;
+}
+.sk_test{
+    color: #d8505c;
+    margin-left: 10px;
+    float: left;
+}
+
+.sk_time{
+    float: left;
+    margin-left: 10px;
+}
+
+.sk_time span{
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    color: #ffffff;
+    background: #333333;
+    margin-left: 3px;
+    float: left;
+    margin-top: 7px;
+}
+.sk_time span:nth-of-type(3n){
+    background: #ffffff;
+    color: #333333;
+    width: 3px;
+}
+/*秒杀的内容 商品*/
+.sk_product{
+    width: 100%;
+    margin: 10px 0;
+}
+.sk_product li{
+    width: 33.33333%;
+    float: left;
+}
+.sk_product li a{
+    width: 100%;
+    display: block;
+    border-right: 1px solid #cccccc;
+}
+.sk_product li:last-of-type a{
+    border-right: none;
+}
+.sk_product li a img{
+    width: 64%;
+    margin: 0 auto;
+    display: block;
+}
+.sk_product li p{
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 0;
+}
+.sk_product li .now_price{
+    color: #d8505c;
+
+}
+.sk_product li .old_price{
+    color: #666666;
+    text-decoration: line-through;
+}
+/*组合样式*/
+.w_p50{
+    width: 50%;
+}
+.w_p50 img{
+    width: 100%;
+    display: block;
+}
+.b_left{
+    border-left: 1px solid #dddddd;
+}
+.b_right{
+    border-right: 1px solid #dddddd;
+}
+.b_bottom{
+    border-bottom: 1px solid #dddddd;
+}
+
+/*Footer区*/
+#gfooter {
+    background-color: #000;
+}
+.foot_dark {
+    background: #000;
+    /*color: #494949;*/
+    color: #7b7b7b;
+}
+.foot {
+    /*background: #fff;*/
+    /*color: #000;*/
+    font: 12px/20px "微软雅黑","宋体";
+    min-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}
+#gfooter .foot_top {
+    /* background-color: #1e2628; */
+    background-color: #ffffff;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, div, input, video, sup, sub, table {
+    margin: 0;
+    padding: 0;
+}
+.healthy {
+    clear: both;
+    background: #1e2628;
+    padding: 8px 3%;
+    text-align: center;
+    color: #4f5f5f;
+}
+.healthy strong {
+    margin: 0 5px 0 0;
+}
+b, strong {
+    font-weight: bolder;
+}
+#gfooter .foot_cpright {
+    padding: 50px 0 150px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.foot_lefts {
+    float: left;
+    display: inline;
+}
+.foot_dark .foot_ieg_logo {
+    background: url(/static/home/images/common/logo-bottom.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+.foot_dark a {
+    color: #7b7b7b;
+}
+.foot_ieg_logo {
+    float: left;
+    /*width: 180px;*/
+    width: 300px;
+    height: 135px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin: 10px 0 0 10px;
+    /*background: url(//game.gtimg.cn/images/js/2018foot/logo/foot-light.png);*/
+}
+#gfooter .gfooter_selflogo {
+    width: 109px;
+    /*background-image: url(//game.gtimg.cn/images/wuxia/web201501/nav-copy.png);*/
+    /*background: url(/static/home/images/common/logo.png);*/
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+.foot_left {
+    float: left;
+    text-indent: -999em;
+    overflow: hidden;
+    margin: 10px 0 0 10px;
+    width: 85px;
+    height: 35px;
+}
+.foot_links {
+    display: inline;
+    float: right;
+    width: 682px;
+    list-style: none;
+}
+.foot_links .link_map {
+    font-size: 0;
+}
+.foot_links li {
+    line-height: 20px;
+    overflow: hidden;
+}
+.foot_links .link_map span, .foot_links .link_map a {
+    font-size: 12px;
+    color: #7b7b7b;
+}
+.f_line {
+    margin: 0 2px;
+}
